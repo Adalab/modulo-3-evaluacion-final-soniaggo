@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './styles/App.css';
-import './styles/index.css';
+import { useState } from 'react';
+import React, { useEffect } from 'react';
+import './styles/App.scss';
+import './styles/index.scss';
+import Header from './components/Header.jsx';
+import  FiltersCharacters from './components/FiltersCharacters.jsx';
+import ListCharacters from './components/ListCharacters.jsx';
+import DetailCharacters from './components/DetailCharacters.jsx';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const[Characters, setListCharacters] = useState([]);
+  const[searchName, setSearchName] = useState("");
+  const[filterHouse, setFilterHouse] = useState("");
+  
 
+
+  useEffect(() => {
+  fetch("https://hp-api.onrender.com/api/characters")
+  .then((response) => response.json())
+  .then((data) => {
+    setListCharacters(data);
+  })
+
+},[]);
+
+const house =[... new Set (Characters.map(item => item.house))];
+
+const filterList = Characters.filter(item=> item.name.toLowerCase().includes(searchName.toLowerCase()) )
+.filter(item =>item.house === filterHouse || filterHouse === "");
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     <Header />
+     <FiltersCharacters PsearchName={searchName} PsetSearchName ={setSearchName} Phouse ={house}  PfilterHouse = {filterHouse}  PsetFilterHouse ={ setFilterHouse}/>
+     <ListCharacters  PCharacters={filterList}/>
+     <DetailCharacters/>
+
     </>
   )
 }
