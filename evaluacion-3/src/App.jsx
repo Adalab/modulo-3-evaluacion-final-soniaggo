@@ -6,6 +6,7 @@ import Header from './components/Header.jsx';
 import  FiltersCharacters from './components/FiltersCharacters.jsx';
 import ListCharacters from './components/ListCharacters.jsx';
 import DetailCharacters from './components/DetailCharacters.jsx';
+import { Routes, Route } from 'react-router-dom';
 
 
 
@@ -31,11 +32,22 @@ const filterList = Characters.filter(item=> item.name.toLowerCase().includes(sea
 .filter(item =>item.house === filterHouse || filterHouse === "");
   return (
     <>
-     <Header />
-     <FiltersCharacters PsearchName={searchName} PsetSearchName ={setSearchName} Phouse ={house}  PfilterHouse = {filterHouse}  PsetFilterHouse ={ setFilterHouse}/>
-     <ListCharacters  PCharacters={filterList}/>
-     <DetailCharacters/>
+    
+    
+   
+    <Routes>
+      <Route index element={
+        <>
+        <Header />
+         <FiltersCharacters PsearchName={searchName} PsetSearchName ={setSearchName} Phouse ={house}  PfilterHouse = {filterHouse}  PsetFilterHouse ={ setFilterHouse}/>
+         <ListCharacters  PCharacters={filterList}/>
+         </>
+      }
+      ></Route>
 
+      <Route path ="/detail/:actor"  element={<DetailCharacters ListCharactersDetail ={Characters}></DetailCharacters>} ></Route>
+      <Route path="*" element={<h1>404 Not Found</h1>} />
+    </Routes>
     </>
   )
 }
