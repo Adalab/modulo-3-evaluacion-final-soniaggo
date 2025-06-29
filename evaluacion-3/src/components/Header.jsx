@@ -1,13 +1,13 @@
-function Header(){
+import React from "react";
+import styles from "../styles/Header.module.scss";  // Importa los estilos de Sass
 
-
-return(
-
-<h1>Harry Potter</h1>
-
-
-
-)
-
+function Header() {
+  return (
+    <header>
+      <h1 className={styles["header-title"]}>Harry Potter</h1>
+    </header>
+  );
 }
+
 export default Header;
+

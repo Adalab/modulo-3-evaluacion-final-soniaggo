@@ -1,0 +1,50 @@
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;  /* Separación entre los inputs */
+  margin-top: 20px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="search"], select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #b2762d;  /* Un color que resalta al enfocar */
+  }
+}
+
+select {
+  background-color: #f9f9f9;
+  margin-bottom:20px ;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #b2762d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #d2af5f;  /* Hover effect */
+  }
+}

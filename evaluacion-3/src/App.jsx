@@ -28,24 +28,30 @@ function App() {
 
 const house =[... new Set (Characters.map(item => item.house))];
 
+
+  const handleResetFilters = () => {
+     setSearchName("");
+     setFilterHouse("");
+};
+
 const filterList = Characters.filter(item=> item.name.toLowerCase().includes(searchName.toLowerCase()) )
 .filter(item =>item.house === filterHouse || filterHouse === "");
   return (
     <>
-    
-    
+
+  
    
     <Routes>
       <Route index element={
         <>
         <Header />
          <FiltersCharacters PsearchName={searchName} PsetSearchName ={setSearchName} Phouse ={house}  PfilterHouse = {filterHouse}  PsetFilterHouse ={ setFilterHouse}/>
-         <ListCharacters  PCharacters={filterList}/>
+         <ListCharacters  PCharacters={filterList} onResetFilters={handleResetFilters} />
          </>
       }
       ></Route>
 
-      <Route path ="/detail/:actor"  element={<DetailCharacters ListCharactersDetail ={Characters}></DetailCharacters>} ></Route>
+      <Route path ="/detail/:id"  element={<DetailCharacters ListCharactersDetail ={Characters}></DetailCharacters>} ></Route>
       <Route path="*" element={<h1>404 Not Found</h1>} />
     </Routes>
     </>
