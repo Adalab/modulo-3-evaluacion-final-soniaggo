@@ -52,7 +52,7 @@ const filterList = Characters.filter(item=> item.name.toLowerCase().includes(sea
       ></Route>
 
       <Route path ="/detail/:id"  element={<DetailCharacters ListCharactersDetail ={Characters}></DetailCharacters>} ></Route>
-      <Route path="*" element={<h1>404 Not Found</h1>} />
+      <Route path="*" element={<h1>El personaje que buscas no existe</h1>} />
     </Routes>
     </>
   )
