@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "../styles/FiltersCharacters.module.scss";  // Asegúrate de que la ruta del archivo sea correcta
 
-function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, PsetFilterHouse }) {
+function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, PsetFilterHouse, selectedStatus,
+  onStatusChange}) {
 
   const handleName = (ev) => {
     ev.preventDefault();
@@ -41,6 +42,45 @@ function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, 
           )}
         </select>
       </div>
+      <div className={styles["filter-item"]}>
+  <label>Filtrar por estado</label>  
+
+  <div className={styles.radioGroup}> 
+    <label className={styles.radioOption}>
+      <input
+        type="radio"
+        name="status"
+        value="Alive"
+        checked={selectedStatus === "Alive"}
+        onChange={(e) => onStatusChange(e.target.value)}
+      />
+      <span>❤️ Vivo</span>
+    </label>
+
+    <label className={styles.radioOption}>
+      <input
+        type="radio"
+        name="status"
+        value="Dead"
+        checked={selectedStatus === "Dead"}
+        onChange={(e) => onStatusChange(e.target.value)}
+      />
+      <span>💀 Muerto</span>
+    </label>
+
+    <label className={styles.radioOption}>
+      <input
+        type="radio"
+        name="status"
+        value=""
+        checked={selectedStatus === ""}
+        onChange={(e) => onStatusChange(e.target.value)}
+      />
+      <span>🔮 Todos</span>
+    </label>
+  </div>
+</div>
+ 
     </form>
   );
 }

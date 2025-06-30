@@ -14,7 +14,7 @@ function App() {
   const[Characters, setListCharacters] = useState([]);
   const[searchName, setSearchName] = useState("");
   const[filterHouse, setFilterHouse] = useState("");
-  
+  const[selectedStatus, setSelectedStatus] = useState("");
 
 
   useEffect(() => {
@@ -34,8 +34,11 @@ const house =[... new Set (Characters.map(item => item.house))];
      setFilterHouse("");
 };
 
-const filterList = Characters.filter(item=> item.name.toLowerCase().includes(searchName.toLowerCase()) )
-.filter(item =>item.house === filterHouse || filterHouse === "");
+const filterList = Characters
+  .filter(item => item.name.toLowerCase().includes(searchName.toLowerCase()))
+  .filter(item => item.house === filterHouse || filterHouse === "")
+  .filter(item => selectedStatus === "" || (selectedStatus === "Alive" ? item.alive : !item.alive));
+
   return (
     <>
 
@@ -45,7 +48,8 @@ const filterList = Characters.filter(item=> item.name.toLowerCase().includes(sea
       <Route index element={
         <>
         <Header />
-         <FiltersCharacters PsearchName={searchName} PsetSearchName ={setSearchName} Phouse ={house}  PfilterHouse = {filterHouse}  PsetFilterHouse ={ setFilterHouse}/>
+         <FiltersCharacters PsearchName={searchName} PsetSearchName ={setSearchName} Phouse ={house}  PfilterHouse = {filterHouse}  PsetFilterHouse ={ setFilterHouse}selectedStatus={selectedStatus}
+          onStatusChange={setSelectedStatus} />
          <ListCharacters  PCharacters={filterList} onResetFilters={handleResetFilters} />
          </>
       }
