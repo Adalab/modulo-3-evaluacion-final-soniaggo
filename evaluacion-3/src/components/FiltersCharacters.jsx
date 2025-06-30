@@ -38,7 +38,7 @@ function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, 
         >
           <option value="">All</option>
           {Phouse.map((house, id) =>
-            <option key={house} value={house}>{house}</option>
+            <option key={id} value={house}>{house}</option>
           )}
         </select>
       </div>
