@@ -23,9 +23,9 @@ function DetailCharacters({ ListCharactersDetail }) {
 
   return (
     <div className={styles["detail-container"]}>
-      <h1>Detalle de personaje</h1>
+      <h1>Character Details</h1>
       <div className={styles["content-container"]}>
-        {/* Imagen a la izquierda */}
+       
         <div className={styles["image-container"]}>
           <img
             src={characterDetail.image ? characterDetail.image : DefaultImage}
@@ -33,14 +33,14 @@ function DetailCharacters({ ListCharactersDetail }) {
           />
         </div>
 
-        {/* Texto y logo a la derecha */}
+       
         <div className={styles["text-container"]}>
-          <h2>{characterDetail.name}</h2>
-          <h3>{characterDetail.species}</h3>
-          <h3>{characterDetail.ancestry}</h3>
-          <h3>{characterDetail.house}</h3>
-          <h3>{characterDetail.actor}</h3>
-          <h3>{characterDetail.alive ? "❤️ Vivo" : "💀 Muerto"}</h3>
+          <h2> Name : {characterDetail.name}</h2>
+          <h3> Especies : {characterDetail.species}</h3>
+          <h3> Ancestry : {characterDetail.ancestry}</h3>
+          <h3> House : {characterDetail.house}</h3>
+          <h3> Actor : {characterDetail.actor}</h3>
+          <h3> State: {characterDetail.alive ? "❤️ Vivo" : "💀 Muerto"}</h3>
           {logoCasa && (
             <img
               src={logoCasa}
@@ -51,9 +51,8 @@ function DetailCharacters({ ListCharactersDetail }) {
         </div>
       </div>
 
-      {/* Botón de volver */}
       <Link to="/">
-        <button>Volver a la lista</button>
+        <button>Return to list</button>
       </Link>
     </div>
   );

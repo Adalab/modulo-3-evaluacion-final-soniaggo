@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Header.module.scss";  // Importa los estilos de Sass
+import styles from "../styles/Header.module.scss";  
 
 
 function Header() {

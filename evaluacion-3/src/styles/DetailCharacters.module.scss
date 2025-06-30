@@ -9,14 +9,14 @@
 }
 
 .content-container {
-  display: flex;  // Usa flexbox para alinear los elementos
-  align-items: center;  // Centra verticalmente los elementos
-  justify-content: flex-start;  // Alinea los elementos a la izquierda
+  display: flex;  
+  align-items: center;  
+  justify-content: flex-start;  
 }
 
 .image-container {
-  flex: 1;  // Asegura que la imagen ocupe el 50% del espacio
-  margin-right: 1rem;  // Espacio entre la imagen y el texto
+  flex: 2;  
+  margin-right: 0.5rem;  
 }
 
 img {
@@ -27,14 +27,14 @@ img {
 }
 
 .text-container {
-  flex: 2;  // El texto ocupa el doble de espacio que la imagen
+  flex: 2;  
   padding: 1rem;
 }
 
 h2, h3 {
-  color: #2c3e50;
-  font-size: 1.5rem;
-  margin-top: 1rem;
+  color: #c0b232;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
 
 button {
@@ -46,7 +46,7 @@ button {
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 
   &:hover {
     background-color: #971f47;
@@ -54,8 +54,8 @@ button {
 }
 
 .house-logo {
-  width: 50px;  // Logo más pequeño
-  height: 60px;  // Logo más pequeño
-  margin-top: 10px;
+  width: 110px;  
+  height: 130px;  
+  margin-top: 5px;
 }
 

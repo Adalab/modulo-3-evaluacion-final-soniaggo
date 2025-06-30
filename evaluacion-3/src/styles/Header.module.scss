@@ -1,13 +1,14 @@
 .header-title {
   font-family: 'Fanwood Text', serif;
-  font-size: 5rem;
+  font-size: 6rem;
   text-align: center;
-  color: #c1a15e; /* Color dorado/bronce */
+  color: #c1a15e; 
 
-  background: linear-gradient(45deg, #b2762d, #d2af5f); /* Gradiente de tonos dorados */
+  background: linear-gradient(45deg, #b2762d, #d2af5f); 
   -webkit-background-clip: text;
   color: transparent;
 
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Efecto de sombra suave para resaltar */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   padding: 20px;
+  
 }

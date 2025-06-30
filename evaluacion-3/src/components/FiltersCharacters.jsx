@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/FiltersCharacters.module.scss";  // Asegúrate de que la ruta del archivo sea correcta
+import styles from "../styles/FiltersCharacters.module.scss"; 
 
 function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, PsetFilterHouse, selectedStatus,
   onStatusChange}) {
@@ -17,33 +17,33 @@ function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, 
   return (
     <form className={styles["filters-container"]}>
       <div className={styles["filter-item"]}>
-        <label htmlFor="search">Buscar por personaje</label>
+        <label htmlFor="search">Search by character name</label>
         <input
           type="search"
           name="search"
           id="search"
-          placeholder="Filtrar por nombre"
+          placeholder="Name"
           value={PsearchName}
           onChange={handleName}
         />
       </div>
 
       <div className={styles["filter-item"]}>
-        <label htmlFor="house">Filtrar por casa</label>
+        <label htmlFor="house">Filter by house</label>
         <select
           name="house"
           id="house"
           value={PfilterHouse}
           onChange={handleHouse}
         >
-          <option value="">Todas</option>
+          <option value="">All</option>
           {Phouse.map((house, id) =>
             <option key={house} value={house}>{house}</option>
           )}
         </select>
       </div>
       <div className={styles["filter-item"]}>
-  <label>Filtrar por estado</label>  
+  <label>Filter by state</label>  
 
   <div className={styles.radioGroup}> 
     <label className={styles.radioOption}>
@@ -54,7 +54,7 @@ function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, 
         checked={selectedStatus === "Alive"}
         onChange={(e) => onStatusChange(e.target.value)}
       />
-      <span>❤️ Vivo</span>
+      <span>❤️ Alive</span>
     </label>
 
     <label className={styles.radioOption}>
@@ -65,7 +65,7 @@ function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, 
         checked={selectedStatus === "Dead"}
         onChange={(e) => onStatusChange(e.target.value)}
       />
-      <span>💀 Muerto</span>
+      <span>💀 Dead</span>
     </label>
 
     <label className={styles.radioOption}>
@@ -76,7 +76,7 @@ function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, 
         checked={selectedStatus === ""}
         onChange={(e) => onStatusChange(e.target.value)}
       />
-      <span>🔮 Todos</span>
+      <span>🔮 All</span>
     </label>
   </div>
 </div>

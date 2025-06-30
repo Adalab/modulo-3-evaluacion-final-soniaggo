@@ -1,37 +1,4 @@
-/* function ListCharacters ({ PCharacters}){
 
-
-return(
-<Link to = {"/detail" + item.actor}>
-
-<main>
-
-<ul>
-{PCharacters.map(item =>
-
-<li key={item.id}>
-<img src={item.image} alt={item.name} />
-<h2>{item.name}</h2>   
-<h3>{item.species}</h3> 
-</li>)}
-</ul>
-
-</main>
-
-</link>
-
-
-
-
-
-)
-
-
-
-}
-
-
-export default ListCharacters; */
 import { Link } from "react-router-dom";
 import styles from "../styles/ListCharacters.module.scss"; 
 import DefaultImage from "../images/defaultimages.png";
@@ -42,18 +9,12 @@ import DefaultImage from "../images/defaultimages.png";
 function ListCharacters({ PCharacters, onResetFilters }) {
   
   
-
-
-  
-   
-  
-  
   return (
     <main>
       {PCharacters.length === 0 ? (
         <div className={styles['no-results']}>
-          <p>❌ No se encontraron personajes con ese nombre o casa.</p>
-          <button onClick={onResetFilters}>🔙 Volver al listado completo</button>
+          <p>✨ "Our spells found no matching wizard or witch!"</p>
+          <button onClick={onResetFilters}>🔙 Return to list </button>
         </div>
       ) : (
         <ul className={styles['character-list']}>
