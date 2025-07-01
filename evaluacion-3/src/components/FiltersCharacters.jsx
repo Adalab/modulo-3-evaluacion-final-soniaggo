@@ -16,6 +16,7 @@ function FiltersCharacters({ PsearchName, PsetSearchName, Phouse, PfilterHouse, 
 
   return (
     <form className={styles["filters-container"]}>
+   
       <div className={styles["filter-item"]}>
         <label htmlFor="search">Search by character name</label>
         <input
